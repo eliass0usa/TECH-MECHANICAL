@@ -33,7 +33,7 @@ def atualizar_senha_usuario():
 
 # EXCLUSÃO DE USUARIO
 @app.route('/deletar_usuario', methods=['POST'])
-def deletar_usuario():
+def deletar_usuario_route():
     email = request.form['email']
     deletar_usuario(email)
     return redirect(url_for('listar_usuarios'))
