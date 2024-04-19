@@ -2,19 +2,381 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login/Cadastro</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Tech Mechanical</title>
+    <!-- novo projeto -->
+    <!-- FONT AWESOME -->
+    <script
+      src="https://kit.fontawesome.com/91dee05415.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;1,400&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="container">
-      <h1>Login/Cadastro</h1>
-      <form action="/cadastrar" method="post">
-        <input type="text" name="nome" placeholder="Nome" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <input type="password" name="senha" placeholder="Senha" required />
-        <button type="submit">Cadastrar</button>
+    <span id="home"></span>
+    <!-- NAV -->
+    <header class="header">
+      <a href="" class="header_linklogo">
+        <img
+          src="https://img.freepik.com/vetores-premium/chave-e-chave-de-fenda-no-logotipo-da-engrenagem_698903-3490.jpg"
+          class="header_linklogo--img"
+          alt=""
+        />
+      </a>
+
+      <div class="header_wpnav">
+        <a href="{{ url_for('login') }}" class="nav-btn--login">Login</a>
+
+        <i class="fa fa-bars hamburguer-menu"></i>
+        <nav class="header_wpnav--nav">
+          <div>
+            <i class="fa fa-xmark close-menu-btn"></i>
+            <a href="#home" class="nav-btn">Home</a>
+            <a href="#servicos" class="nav-btn">Serviços</a>
+            <a href="#agendamento" class="nav-btn">Agendamento</a>
+            <a href="#parceiros" class="nav-btn">Parceiros</a>
+            <a href="#sobrenos" class="nav-btn">Sobre nós</a>
+            <a href="#contato" class="nav-btn">Contato</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HOME -->
+
+    <!-- BANNER INICIAL -->
+
+    <section class="banner_header">
+      <div class="banner_header-wp">
+        <img
+          src="https://img.freepik.com/fotos-gratis/feliz-mecanico-de-automoveis-preto-trabalhando-na-oficina-de-automoveis-e-olhando-para-a-camera_637285-11545.jpg?t=st=1713499980~exp=1713503580~hmac=ed60f4167e206a6b16e4419c6a0ac0b9566bc263c1cd771f3f44812ff04f3e41&w=1380"
+          alt=""
+          class="banner_header-wp--image"
+        />
+      </div>
+      <div class="banner_header-wp">
+        <img
+          src="https://img.freepik.com/fotos-gratis/um-motorista-dirigindo-um-carro-vista-interior_114579-4085.jpg?t=st=1713500039~exp=1713503639~hmac=a2c593b4bd07c247263828435cc8b3d8872c233767c372487efd6d7ec9e7dc17&w=1380"
+          alt=""
+          class="banner_header-wp--image"
+        />
+      </div>
+      <div class="banner_header-wp">
+        <img
+          src="https://img.freepik.com/fotos-gratis/oleo-derramando-mecanico-no-motor-de-carro_1170-1308.jpg?t=st=1713500076~exp=1713503676~hmac=bd5405d98356972548ee37ae902314653b01a042bd8e2c763c1e1937d02d9ef8&w=1380"
+          alt=""
+          class="banner_header-wp--image"
+        />
+      </div>
+    </section>
+
+    <!-- cards informativos -->
+
+    <section class="cards">
+      <article class="cards_card">
+        <img
+          src="https://img.freepik.com/fotos-gratis/homem-bonito-olhando-para-o-motorista-do-sexo-feminino_23-2148384913.jpg?t=st=1713499741~exp=1713503341~hmac=f69dd4fd4c389785ef5e09aad44123e0f424fd9a234027fdff81a4c6df55826e&w=1380"
+          alt=""
+          class="cards_card--imagem"
+        />
+        <h2 class="cards_card--titulo">
+          A sua melhor experiência em serviços de manutenção
+        </h2>
+      </article>
+      <article class="cards_card">
+        <img
+          src="https://img.freepik.com/fotos-gratis/auto-verificar-mecanico-car_1303-14042.jpg?t=st=1713499776~exp=1713503376~hmac=83c60d8d9686a9ccb2efbc3830135f43d20f511eb6d5003f362b6527fe8090c4&w=1380"
+          alt=""
+          class="cards_card--imagem"
+        />
+        <h2 class="cards_card--titulo">
+          Parceria com as melhores oficina de São Paulo
+        </h2>
+      </article>
+      <article class="cards_card">
+        <img
+          src="https://img.freepik.com/fotos-gratis/mecanico-de-automoveis-trocando-as-rodas-do-carro_1303-27465.jpg?t=st=1713499803~exp=1713503403~hmac=8ca95cfc4ca2c55908c7aa349cd3dea68d2fa8a73ff75e772a775c445cfd8213&w=1380"
+          alt=""
+          class="cards_card--imagem"
+        />
+        <h2 class="cards_card--titulo">
+          Eleita a melhor oficina de São Paulo em 2022 pela revista Hotspeed
+        </h2>
+      </article>
+      <article class="cards_card">
+        <img
+          src="https://img.freepik.com/fotos-gratis/carro-de-desenho-animado-e-sinal-de-reciclagem-na-grama_23-2148576667.jpg?t=st=1713499886~exp=1713503486~hmac=c9c8b0c79e393861b5ba25fe2cd83406aa671609b56a711020a8fcf43cc4aa96&w=1380"
+          alt=""
+          class="cards_card--imagem"
+        />
+        <h2 class="cards_card--titulo">
+          Todo resíduo gerado é reciclado e o valor repassado a entidades
+          carentes.
+        </h2>
+      </article>
+      <article class="cards_card">
+        <img
+          src="https://img.freepik.com/fotos-gratis/mulheres-apertar-mao-em-carro-mostra-quarto_23-2148266152.jpg?t=st=1713499925~exp=1713503525~hmac=5dad9f32cbbe71d09be71ad2cb96e31a38b6e23eb3005ae6a36c18429ef374b5&w=1380"
+          alt=""
+          class="cards_card--imagem"
+        />
+        <h2 class="cards_card--titulo">
+          Parceria com as concessionárias e autopeças
+        </h2>
+      </article>
+    </section>
+
+    <!-- agendamento -->
+
+    <section id="agendamento" class="agendamento">
+      <div class="agendamento-wp">
+        <h2 class="agendamento-wp--titulo">
+          Deixe sua máquina em ótimas mãos: sua mecânica de confiança está aqui!
+        </h2>
+        <img
+          src="{{ url_for('static', filename='images/agendamento.png') }}"
+          alt=""
+          class="agendamento-wp--imagem"
+        />
+      </div>
+    </section>
+
+    <!-- serviços -->
+    <section id="servicos" class="servicos">
+      <h2 class="servicos--titulo">Serviços</h2>
+
+      <div class="servicos-wp">
+        <article class="servicos_article">
+          <img
+            src="https://img.freepik.com/fotos-gratis/mecanico-de-automoveis-no-servico-de-automoveis-verificando-o-carro_1303-32024.jpg?t=st=1713499548~exp=1713503148~hmac=fe78936fed793e1f8a2acb105ff23844e1533cc385317b4bca773c1f6499d70f&w=1380"
+            alt=""
+            class="servicos_article--imagem"
+          />
+
+          <div class="servicos_article_card">
+            <h3 class="servicos_article_card--titulo">Revisão preventiva</h3>
+
+            <p class="servicos_article_card--desc">
+              A revisão preventiva ajuda a identificar e previnir problemas
+              mecânicos, o recomendado é ir a oficina pelo menos a cada 6 meses,
+              agende sua visita e tenha certeza que terá um carro sempre em
+              condições para viajar e trabalhar.
+            </p>
+          </div>
+
+          <button class="servicos_article--btn">Agendar revisão</button>
+        </article>
+        <article class="servicos_article">
+          <img
+            src="https://img.freepik.com/fotos-gratis/pintor-de-carros-preparando-carro-para-pintura-na-oficina_342744-797.jpg?w=900&t=st=1684964413~exp=1684965013~hmac=f6aeb8f0bc91eacdcbfdbeb51851d91b29b3a81e2a3cb77d677915628329392e"
+            alt=""
+            class="servicos_article--imagem"
+          />
+
+          <div class="servicos_article_card">
+            <h3 class="servicos_article_card--titulo">Funilaria</h3>
+
+            <p class="servicos_article_card--desc">
+              Preserve a beleza do seu veículo com a revisão preventiva de
+              funilaria. Nossa equipe especializada realizará uma análise
+              minuciosa da carroceria, reparando pequenos amassados, arranhões e
+              danos estéticos.
+            </p>
+          </div>
+
+          <button class="servicos_article--btn">Agendar revisão</button>
+        </article>
+        <article class="servicos_article">
+          <img
+            src="https://img.freepik.com/fotos-gratis/estacao-de-detalhamento-de-lavagem-de-carro_1303-22319.jpg?w=900&t=st=1684964814~exp=1684965414~hmac=ff5915d21f6b05681307c259909035f4a2fa7611f0ae082fd972702987bb5a2f"
+            alt=""
+            class="servicos_article--imagem"
+          />
+
+          <div class="servicos_article_card">
+            <h3 class="servicos_article_card--titulo">Lava rápido</h3>
+
+            <p class="servicos_article_card--desc">
+              Experimente o melhor serviço de lavagem automotiva em nosso
+              lava-rápido. Nossa equipe altamente treinada oferece um
+              atendimento de excelência, utilizando técnicas e produtos de alta
+              qualidade.
+            </p>
+          </div>
+
+          <button class="servicos_article--btn">Agendar revisão</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- parceiros -->
+
+    <section id="parceiros" class="parceiros">
+      <h2 class="parceiros--titulo">Parceiros</h2>
+
+      <div class="parceiros_wp">
+        <article class="parceiros_wp_article">
+          <img
+            src="{{ url_for('static', filename='images/parceiros-1.jpeg') }}"
+            alt=""
+            class="parceiros_wp_article--img"
+          />
+
+          <div class="parceiros_wp_article_card">
+            <p class="parceiros_wp_article_card--desc">
+              Nossos parceriso são altamente qualificados e passam por uma
+              rigorosa avaliação na qualidade do serviço prestado. Tudo isso
+              pensado no bem estar do cliente.
+            </p>
+          </div>
+        </article>
+
+        <article class="parceiros_wp_article">
+          <img
+            src="{{ url_for('static', filename='images/mapa.png') }}"
+            alt=""
+            class="parceiros_wp_article--img"
+          />
+
+          <div class="parceiros_wp_article_card">
+            <p class="parceiros_wp_article_card--desc">
+              Veja as oficinas mais próximas da sua região.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- sobre nos  -->
+
+    <section id="sobrenos" class="sobrenos">
+      <h2 class="sobrenos--titulo">Sobre nós</h2>
+
+      <article class="sobrenos_historia">
+        <div class="sobrenos_historia_logoct">
+          <img
+            src="{{ url_for('static', filename='images/logo-header.jpg') }}"
+            alt=""
+            class="sobrenos_historia_logoct--img"
+          />
+        </div>
+
+        <div class="sobrenos_historia-wp">
+          <p class="sobrenos_historia--desc">
+            A Tech Mecanichal vem com intuito de facilitar a vida do cliente com
+            a praticidade de agendar serviços que poderiam vir a ser de longo
+            prazo, aqui você poderá escolher um tempo livre para não tem um
+            serviço corrido, e não atrapalhar seu dia.
+          </p>
+        </div>
+      </article>
+
+      <article class="sobrenos_infos">
+        <div class="sobrenos_infos_article">
+          <h3 class="sobrenos_infos_article--titulo">Missão</h3>
+
+          <div class="sobrenos_infos_article-card">
+            <p class="sobrenos_infos_article-card--desc">
+              Ser a maior plataforma de reserva de serviços automotivos,
+              utilizando do melhor que a tecnologia pode oferecer.
+            </p>
+          </div>
+        </div>
+
+        <div class="sobrenos_infos_article">
+          <h3 class="sobrenos_infos_article--titulo">Visão</h3>
+
+          <div class="sobrenos_infos_article-card">
+            <p class="sobrenos_infos_article-card--desc">
+              Ser o melhor consultor de serviços automotivos aumentando a
+              comunicação entre cliente e prestador de serviços.
+            </p>
+          </div>
+        </div>
+
+        <div class="sobrenos_infos_article">
+          <h3 class="sobrenos_infos_article--titulo">Valores</h3>
+
+          <div class="sobrenos_infos_article-card">
+            <p class="sobrenos_infos_article-card--desc">
+              Prezamos por um trabalho confiável em que o cliente não perca
+              tempo e dinheiro.
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- contate-nos -->
+
+    <section id="contato" class="contato">
+      <h2 class="contato--titulo">Contate-nos!</h2>
+
+      <form id="form" action="" class="contato_form">
+        <div class="contato_form_wp">
+          <label class="contato_form_wp--label">
+            Nome*
+            <input
+              class="contato_form_wp--input"
+              type="text"
+              name=""
+              id=""
+              placeholder="Digite seu nome"
+            />
+          </label>
+
+          <label class="contato_form_wp--label">
+            E-mail*
+            <input
+              class="contato_form_wp--input"
+              type="email"
+              name=""
+              id=""
+              placeholder="Digite seu E-mail"
+            />
+          </label>
+
+          <label class="contato_form_wp--label">
+            Telefone*
+            <input
+              class="contato_form_wp--input"
+              type="tel"
+              name=""
+              id=""
+              placeholder="Digite seu telefone"
+            />
+          </label>
+        </div>
+
+        <div class="form--wp">
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Digite sua mensagem..."
+            class="contato_form--text"
+          ></textarea>
+
+          <button class="contato_form--btn">Enviar</button>
+        </div>
       </form>
-    </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
   </body>
 </html>

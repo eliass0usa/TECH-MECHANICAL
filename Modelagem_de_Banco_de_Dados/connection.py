@@ -14,6 +14,8 @@ def criar_usuario(nome, email, senha):
   cursor = conexao.cursor()
   sql = 'INSERT INTO usuario (nome, email, senha) VALUES (%s, %s, %s)'
   valores = (nome, email, senha)
+  cursor.execute(sql, valores)
+  cursor.close()
   conexao.commit()
   conexao.close()
 
@@ -23,25 +25,28 @@ def ler_usuarios():
   sql = 'SELECT * FROM usuario'
   cursor.execute(sql)
   usuarios = cursor.fetchall()
+  cursor.close()
   conexao.close()
   return usuarios
 
 def atualizar_senha(email, nova_senha):
-  conexao = conectar()
-  cursor = conexao.cursor()
-  sql = 'UPDATE usuario SET senha = %s WHERE email = %s'
-  valores = (nova_senha, email)
-  cursor.execute(sql, valores)
-  conexao.commit()
-  conexao.close()
-  print("Senha atualizada com sucesso.")
+    conexao = conectar()
+    cursor = conexao.cursor()
+    sql = 'UPDATE usuario SET senha = %s WHERE email = %s'
+    valores = (nova_senha, email)
+    cursor.execute(sql, valores)
+    conexao.commit()
+    cursor.close()
+    conexao.close()
+    print("Senha atualizada com sucesso.")
 
 def deletar_usuario(email):
-  conexao = conectar
-  cursor = conexao.cursor()
-  sql = 'DELETE FROM usuario WHERE email = %s'
-  valores = (email)
-  cursor.execute(sql, valores)
-  conexao.commit()
-  conexao.close()
-  print("Usuário deletado com sucesso")
+    conexao = conectar()
+    cursor = conexao.cursor()
+    sql = 'DELETE FROM usuario WHERE email = %s'
+    valores = (email,)
+    cursor.execute(sql, valores)
+    conexao.commit()
+    cursor.close()
+    conexao.close()
+    print("Usuário deletado com sucesso")
